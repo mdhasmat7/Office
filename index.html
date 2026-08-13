@@ -39,32 +39,17 @@
 
   .wrap{max-width:1080px; margin:0 auto; padding:0 28px;}
 
-  .topbar{
-    display:flex; align-items:center; justify-content:space-between;
-    padding:28px 28px 0; max-width:1080px; margin:0 auto;
-    font-family:'IBM Plex Mono', monospace; font-size:12px; letter-spacing:.12em;
-    color:var(--muted); text-transform:uppercase;
-  }
-  .topbar .mark{color:var(--amber); font-weight:500;}
-
   .hero{
     max-width:1080px; margin:0 auto;
-    padding:56px 28px 40px;
+    padding:64px 28px 40px;
     display:block;
   }
   .hero-copy{ max-width:640px; }
-  .eyebrow{
-    font-family:'IBM Plex Mono', monospace; font-size:13px; letter-spacing:.16em;
-    color:var(--rust); text-transform:uppercase; margin:0 0 14px;
-  }
   h1{
     font-family:'Yatra One', cursive;
     font-size:clamp(48px, 7vw, 76px);
-    line-height:1.02; margin:0 0 18px; color:var(--cream);
+    line-height:1.02; margin:0 0 26px; color:var(--cream);
     text-shadow:0 0 40px rgba(232,163,61,0.18);
-  }
-  .tagline{
-    font-size:17px; line-height:1.6; color:var(--muted); max-width:420px; margin:0 0 26px;
   }
   .badge{
     display:inline-flex; align-items:center; gap:10px;
@@ -248,15 +233,9 @@
 </head>
 <body>
 
-  <div class="topbar">
-    <span class="mark">Lusail Office</span>
-  </div>
-
   <div class="hero wrap" style="padding-left:0; padding-right:0;">
     <div class="hero-copy">
-      <p class="eyebrow">A concept study</p>
       <h1>Office Life</h1>
-      <p class="tagline">Four moods for the workday, picked by you — playback floats at the corner of the screen, however the day's actually going.</p>
       <span class="badge"><span class="dot"></span><span id="on-air-text">Choose a mood below</span></span>
       <span class="disclaimer">Design concept only — video is streamed straight from YouTube's own embedded player.</span>
     </div>
