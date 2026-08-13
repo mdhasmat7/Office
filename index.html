@@ -88,12 +88,10 @@
   }
 
   section{ padding:36px 28px; max-width:1080px; margin:0 auto; }
-  .story h2, .rotations h2{
+  .rotations h2{
     font-family:'Yatra One', cursive; font-size:clamp(26px,3.4vw,34px);
     color:var(--cream); margin:0 0 18px;
   }
-  .story p{ color:var(--muted); font-size:16px; line-height:1.75; max-width:660px; }
-  .story p + p{ margin-top:14px; }
 
   .rotations-intro{ color:var(--muted); font-size:15.5px; max-width:560px; margin:0 0 30px; }
 
@@ -203,8 +201,11 @@
   .mini-status{ font-family:'IBM Plex Mono', monospace; font-size:10.5px; color:var(--muted); margin-top:8px; min-height:14px; }
   .mini-status.is-error{ color:var(--rust); }
 
+  .mini-player [hidden]{ display:none !important; }
+
   /* Collapsed pill */
   .mini-collapsed{
+    margin-top:10px;
     display:flex; align-items:center; gap:10px;
     background:rgba(23,16,12,0.94); border:1px solid var(--panel-edge); border-radius:100px;
     padding:8px 14px 8px 8px; box-shadow:0 16px 40px -18px rgba(0,0,0,0.6);
@@ -261,12 +262,6 @@
     </div>
   </div>
 
-  <section class="story">
-    <h2>Why moods, not a playlist</h2>
-    <p>Every office has its own soundtrack, whether anyone plans it or not — the hum of the aircon, a call bleeding through someone's headset, the particular quiet right before a deadline. Nobody sits down and curates that; it just happens depending on what the day looks like.</p>
-    <p>This page turns that instinct into a small design object: four moods instead of infinite choice, each one built for a different shape of the workday — pick whichever matches how things are actually going.</p>
-  </section>
-
   <section class="rotations">
     <h2>Four moods for the day</h2>
     <p class="rotations-intro">Pick whichever one matches how the day's going — the player in the corner updates the moment you choose.</p>
@@ -282,7 +277,7 @@
     <div class="mini-expanded" id="mini-expanded">
       <div class="mini-thumb" id="mini-thumb"></div>
       <div class="mini-body">
-        <button class="mini-collapse-btn" id="mini-collapse-btn" aria-label="Collapse player">
+        <button class="mini-collapse-btn" id="mini-collapse-btn" aria-label="Close player">
           <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 9l6 6 6-6"/></svg>
         </button>
         <div class="mini-title-hi" id="mini-title-hi">—</div>
@@ -316,7 +311,7 @@
       </div>
     </div>
 
-    <div class="mini-collapsed" id="mini-collapsed" hidden>
+    <div class="mini-collapsed" id="mini-collapsed">
       <button id="mini-toggle-collapsed" class="mini-toggle-collapsed" aria-label="Play or pause">
         <svg class="icon-play" viewBox="0 0 24 24" fill="currentColor"><path d="M8 5v14l11-7z"/></svg>
         <svg class="icon-pause" viewBox="0 0 24 24" fill="currentColor"><path d="M6 5h4v14H6zM14 5h4v14h-4z"/></svg>
@@ -325,7 +320,7 @@
       <button id="mini-next-collapsed" aria-label="Next mood">
         <svg viewBox="0 0 24 24" fill="currentColor"><path d="M16 6h2v12h-2zM6 6l8.5 6L6 18z"/></svg>
       </button>
-      <button id="mini-expand-btn" aria-label="Expand player">
+      <button id="mini-expand-btn" aria-label="Close player">
         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 15l-6-6-6 6"/></svg>
       </button>
     </div>
@@ -361,10 +356,10 @@
   */
 
   const segments = [
-    { key:'focus', hi:'सुबह का वक़्त',   name:'Subah ka Waqt', subtitle:'“Morning Time”',  tag:'MORNING',  color:'#B6462F', mood:'First chai, half-open eyes, the commute already testing patience before the day has properly begun.', youtubeId:'l4EuF-mR-KY' },
-    { key:'sync',  hi:'मूड ऑफ़',         name:'Mood Off',      subtitle:'“Bad Mood”',      tag:'MOOD OFF', color:'#E8A33D', mood:"Everything's fine on paper but nothing's landing right — replies going short, patience running thin.", youtubeId:'youtubeId:'lvxdDgBPu_3lqN3H' },
-    { key:'break', hi:'बॉस की डांट',     name:'Boss ki Daant', subtitle:'“The Scolding”',  tag:'TENSION',  color:'#D8C3A6', mood:'A message from the top, tone unmistakable, and suddenly everyone at their desk looks very busy.', youtubeId:'youtubeId:'lvxdDgBPu_3lqN3H' },
-    { key:'wrap',  hi:'घर की याद',      name:'Ghar ki Yaad',  subtitle:'“Missing Home”',  tag:'HOMESICK', color:'#7A3527', mood:"Screen still glowing long after everyone's left, thoughts drifting somewhere that isn't this building.", youtubeId:'youtubeId:'lvxdDgBPu_3lqN3H' },
+    { key:'focus', hi:'सुबह का वक़्त',   name:'Subah ka Waqt', subtitle:'“Morning Time”',  tag:'MORNING',  color:'#B6462F', mood:'First chai, half-open eyes, the commute already testing patience before the day has properly begun.', youtubeId:'A3NTY8AjzK8' },
+    { key:'sync',  hi:'मूड ऑफ़',         name:'Mood Off',      subtitle:'“Bad Mood”',      tag:'MOOD OFF', color:'#E8A33D', mood:"Everything's fine on paper but nothing's landing right — replies going short, patience running thin.", youtubeId:'bhiPPi4W4WM' },
+    { key:'break', hi:'बॉस की डांट',     name:'Boss ki Daant', subtitle:'“The Scolding”',  tag:'TENSION',  color:'#D8C3A6', mood:'A message from the top, tone unmistakable, and suddenly everyone at their desk looks very busy.', youtubeId:'G5knFtrWaR4' },
+    { key:'wrap',  hi:'घर की याद',      name:'Ghar ki Yaad',  subtitle:'“Missing Home”',  tag:'HOMESICK', color:'#7A3527', mood:"Screen still glowing long after everyone's left, thoughts drifting somewhere that isn't this building.", youtubeId:'SHTDw2NaJLU' },
   ];
 
   // build mood cards
@@ -478,12 +473,19 @@
   document.getElementById('mini-next-collapsed').addEventListener('click', () => stepSegment(1));
 
   function togglePlay(){
-    if(!ytPlayer) return;
-    const state = ytPlayer.getPlayerState();
-    if(state === YT.PlayerState.PLAYING){
-      ytPlayer.pauseVideo();
-    } else {
-      ytPlayer.playVideo();
+    if(!ytPlayer || typeof ytPlayer.getPlayerState !== 'function'){
+      setStatus('Player is still loading — try again in a second.', true);
+      return;
+    }
+    try{
+      const state = ytPlayer.getPlayerState();
+      if(state === YT.PlayerState.PLAYING){
+        ytPlayer.pauseVideo();
+      } else {
+        ytPlayer.playVideo();
+      }
+    } catch(err){
+      setStatus('Could not control playback — if you opened this file directly, try serving it from a local server instead.', true);
     }
   }
   toggleBtn.addEventListener('click', togglePlay);
@@ -507,14 +509,11 @@
     ytPlayer.seekTo(ratio * ytPlayer.getDuration(), true);
   });
 
-  document.getElementById('mini-collapse-btn').addEventListener('click', () => {
-    miniExpanded.hidden = true;
-    miniCollapsed.hidden = false;
-  });
-  document.getElementById('mini-expand-btn').addEventListener('click', () => {
-    miniCollapsed.hidden = true;
-    miniExpanded.hidden = false;
-  });
+  function dismissPlayer(){
+    miniPlayer.classList.add('is-hidden');
+  }
+  document.getElementById('mini-collapse-btn').addEventListener('click', dismissPlayer);
+  document.getElementById('mini-expand-btn').addEventListener('click', dismissPlayer);
 
   function updateProgress(){
     if(!ytPlayer || typeof ytPlayer.getDuration !== 'function') return;
