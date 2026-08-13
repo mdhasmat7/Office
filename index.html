@@ -277,7 +277,7 @@
     <div class="mini-expanded" id="mini-expanded">
       <div class="mini-thumb" id="mini-thumb"></div>
       <div class="mini-body">
-        <button class="mini-collapse-btn" id="mini-collapse-btn" aria-label="Close player">
+        <button class="mini-collapse-btn" id="mini-collapse-btn" aria-label="Minimize player">
           <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 9l6 6 6-6"/></svg>
         </button>
         <div class="mini-title-hi" id="mini-title-hi">—</div>
@@ -320,7 +320,7 @@
       <button id="mini-next-collapsed" aria-label="Next mood">
         <svg viewBox="0 0 24 24" fill="currentColor"><path d="M16 6h2v12h-2zM6 6l8.5 6L6 18z"/></svg>
       </button>
-      <button id="mini-expand-btn" aria-label="Close player">
+      <button id="mini-expand-btn" aria-label="Expand player">
         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 15l-6-6-6 6"/></svg>
       </button>
     </div>
@@ -509,11 +509,14 @@
     ytPlayer.seekTo(ratio * ytPlayer.getDuration(), true);
   });
 
-  function dismissPlayer(){
-    miniPlayer.classList.add('is-hidden');
+  function collapsePlayer(){
+    miniExpanded.hidden = true;
   }
-  document.getElementById('mini-collapse-btn').addEventListener('click', dismissPlayer);
-  document.getElementById('mini-expand-btn').addEventListener('click', dismissPlayer);
+  function expandPlayer(){
+    miniExpanded.hidden = false;
+  }
+  document.getElementById('mini-collapse-btn').addEventListener('click', collapsePlayer);
+  document.getElementById('mini-expand-btn').addEventListener('click', expandPlayer);
 
   function updateProgress(){
     if(!ytPlayer || typeof ytPlayer.getDuration !== 'function') return;
