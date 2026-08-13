@@ -479,10 +479,15 @@
     }
     try{
       const state = ytPlayer.getPlayerState();
-      if(state === YT.PlayerState.PLAYING){
+      // BUFFERING (state 3) means it's about to play — treat it like PLAYING
+      // so a pause click right after picking a mood doesn't get ignored.
+      const isPlayingOrBuffering = state === YT.PlayerState.PLAYING || state === YT.PlayerState.BUFFERING;
+      if(isPlayingOrBuffering){
         ytPlayer.pauseVideo();
+        setPlayingUI(false);
       } else {
         ytPlayer.playVideo();
+        setPlayingUI(true);
       }
     } catch(err){
       setStatus('Could not control playback — if you opened this file directly, try serving it from a local server instead.', true);
